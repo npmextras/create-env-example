@@ -1,0 +1,37 @@
+{
+    "name": "@npmextras/create-env-example",
+    "version": "0.0.4",
+    "license": "MIT",
+    "bin": {
+        "create-env-examples": "./dist/create-env-examples.js"
+    },
+    "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+    "scripts": {
+        "build": "tsc --build --incremental",
+        "clean": "tsc --build --clean && rm -rf ./dist/",
+        "prepublishOnly": "yarn clean && yarn build",
+        "test": "jest",
+        "watch": "tsc --build --incremental --watch"
+    },
+    "devDependencies": {
+        "@npmextras/eslint-config": "^0.0.9",
+        "@types/jest": "^24.9.0",
+        "eslint": "^6.8.0",
+        "husky": "^4.0.10",
+        "jest": "^24.9.0",
+        "lint-staged": "^9.5.0",
+        "prettier": "^1.19.1",
+        "typescript": "^3.7.5"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "eslint --fix --no-ignore",
+            "git add"
+        ]
+    }
+}
