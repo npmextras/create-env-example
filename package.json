@@ -5,7 +5,6 @@
     "bin": {
         "create-env-examples": "./dist/create-env-examples.js"
     },
-    "publishConfig": { "registry": "https://npm.pkg.github.com/" },
     "scripts": {
         "build": "tsc --build --incremental",
         "clean": "tsc --build --clean && rm -rf ./dist/",
